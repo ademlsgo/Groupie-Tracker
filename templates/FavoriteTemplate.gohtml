@@ -1,0 +1,87 @@
+{{define "FavoriteTemp"}}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link href="/static/FavoriteTemplate.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/FavoriteTemplate.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <title>Favoris</title>
+    </head>
+    <body>
+
+    <a href="../templates/home.html">
+        <img id="ProfilPicture" src="/static/images/Profil-RM.png" alt="Profil Picture">
+    </a>
+
+    <h1 class="H1">Vos Favoris</h1>
+
+    {{ if .FavoritesCharacter }}
+        <h2 class="H2">Vos personnages préférés :</h2>
+        {{ range .FavoritesCharacter }}
+            <div class="ContainerFavorite">
+                <div class="BodyFavorite">
+                    <div class="BodyDatasCharacter">
+                        <p>Nom: {{ .Name }}</p>
+                        <p>Espèce: {{ .Species }}</p>
+                        <p>Sexe: {{ .Gender }}</p>
+                        <p>Status: {{ .Status }}</p>
+                    </div>
+                    <img src="{{ .Image }}" alt="Image">
+                    <a id="Bin" href="/favorite/delete?id={{ .ID }}&typeEndpoint=character">
+                        <img src="/static/images/bin.png" alt="Bin">
+                    </a>
+                </div>
+
+            </div>
+    {{ end }}
+    {{ end }}
+
+
+
+
+    {{ if .FavoritesEpisodes }}
+        <h2 class="H2">Vos épisodes préférés :</h2>
+        {{ range .FavoritesEpisodes }}
+            <div class="ContainerFavorite">
+                <div class="BodyFavorite">
+                    <div class="BodyDatasEpisodes">
+                        <p>Nom: {{ .Name }}</p>
+                        <p>Episode: {{ .Episode }}</p>
+                        <p>Date: {{ .Date }}</p>
+                    </div>
+                    <img src="/static/images/Episodes.jpg" alt="Image">
+                    <a id="Bin" href="/favorite/delete?id={{ .ID }}&typeEndpoint=episode">
+                        <img src="/static/images/bin.png" alt="Bin">
+                    </a>
+                </div>
+            </div>
+    {{ end }}
+    {{ end }}
+
+    {{ if .FavoritesLocation }}
+        <h2 class="H2">Vos lieux préférés :</h2>
+        {{ range .FavoritesLocation }}
+            <div class="ContainerFavorite">
+                <div class="BodyFavorite">
+                    <div class="BodyDatasLocation">
+                        <p>Nom: {{ .Name }}</p>
+                        <p>Type: {{ .Type }}</p>
+                        <p>Dimension: {{ .Dimension }}</p>
+                    </div>
+                    <img src="/static/images/Location.webp" alt="Image">
+                    <a id="Bin" href="/favorite/delete?id={{ .ID }}&typeEndpoint=location">
+                        <img src="/static/images/bin.png" alt="Bin">
+                    </a>
+                </div>
+            </div>
+    {{ end }}
+    {{ end }}
+
+    </body>
+    </html>
+{{end}}
+

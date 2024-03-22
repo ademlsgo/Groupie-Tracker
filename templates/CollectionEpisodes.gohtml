@@ -1,0 +1,40 @@
+{{define "CollectionEpisodes"}}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="/static/CollectionEpisodes.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/CollectionEpisodes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Collection Episodes</title>
+</head>
+<body>
+
+<a href="../templates/home.html">
+    <img id="ProfilPicture" src="/static/images/Profil-RM.png" alt="Profil Picture">
+</a>
+
+<h1 class="H1">Collection Episodes</h1>
+
+<div class="ContainerEpisodes">
+
+        {{ range .RecoverEpisodes}}
+            <div class="BodyEpisodes">
+                <div class="BodyName">
+                    <p id="Pname"><a href="/ressource/episode?id={{.ID}}">{{ .Name }}</a></p><br>
+                </div>
+                <img id="ImageEpisode" src="/static/images/Episodes.jpg" alt="Image">
+            </div>
+        {{ end }}
+    <a id="PreviewPage" href="/collection/episodes?page={{.PrevPage}}">Page précedente</a>
+    <a id="NextPage" href="/collection/episodes?page={{.NextPage}}">Page suivante</a>
+
+    </div>
+
+
+{{end}}
+
+

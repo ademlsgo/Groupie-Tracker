@@ -1,0 +1,66 @@
+{{define "Home"}}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="/static/Home.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/Home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body>
+
+<div class="Header">
+
+    <a href="../templates/home.html">
+        <img id="ProfilPicture" src="/static/images/Profil-RM.png" alt="Profil Picture">
+    </a>
+
+    <img id="LogoPicture" src="/static/images/Rick-and-Morty-Logo.png">
+
+
+    <form id="ButtonSearch" action="/search" method="GET">
+        <label  for="searchInput"></label>
+        <input type="text" id="searchInput" name="q" placeholder="Nom du personnage...">
+    </form>
+
+
+        <button id="ButtonFav"><a href="/ressourceTemp/favoriteTemp">Mes Favoris</a></button>
+
+</div>
+
+
+<div class="Body">
+
+    <div class="WritePicture">
+
+        <p id="PCharacter">Personnages</p>
+        <p id="PLocation">Lieux</p>
+        <p id="PEpisode">Episodes</p>
+
+
+    </div>
+
+    <a href="/collection/character?page=1">
+        <img id="CharacterPicture" src="/static/images/Character.jpg">
+    </a>
+    <a href="/collection/location">
+        <img id="LocationPicture" src="/static/images/Location.webp">
+    </a>
+    <a href="/collection/episodes">
+    <img id="EpisodePicture" src="/static/images/Episodes.jpg">
+    </a>
+
+
+</div>
+<div class="Footer">
+    <p id="Propos"><a href="/ressource/about">À propos...</a></p>
+    <p id="Info">PERSONNAGES: 826   LIEUX: 126   EPISODES: 51</p>
+    <p id="Pmake"><a href="https://github.com/ademlsgo">API@by-Adem</a></p>
+</div>
+</body>
+</html>
+    {{end}}

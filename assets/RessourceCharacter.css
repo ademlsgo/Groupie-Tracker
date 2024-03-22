@@ -1,0 +1,100 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.H1{
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 11vh;
+    rgb(32, 35, 41);
+    margin-top: 0vh;
+
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ContainerCharacter{
+    padding-bottom: 10vh;
+    flex-wrap: wrap;
+    padding-left: 10vh;
+    width: 214vh;
+    background: rgb(39, 43, 51);
+    height: 48.4vh;
+    margin-top: 10vh;
+    color: white;
+    font-family: 'Anton', sans-serif;
+    font-size: 5vh;
+    display: flex;
+}
+
+.BodyCharacter{
+    position: relative;
+    margin-left: 50vh;
+    background: #5b5454;
+    height: 44vh;
+    flex: 0 0 calc(45% - 1rem);
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 15px;
+    margin-top: 10vh;
+    margin-right: -10vh;
+}
+
+.BodyCharacter img{
+    width: 45%;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border-radius: 15px 0px 0px 15px;
+}
+
+
+
+#Favorite-star {
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    margin: 0;
+    margin-left: 37vh;
+    padding-right: 5vh;
+    position: absolute;
+}
+
+#Favorite-star a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#Favorite-star a.clicked {
+    color: gold;
+}
+
+
+
+
+
+.BodyName{
+    display: flex;
+    flex-direction: column;
+    font-size: 4vh;
+    width: 32.5%;
+    margin-right: 6vh;
+    margin-top: -1vh;
+    flex: 0 0 calc(45% - 1rem);
+}
+
+.BodyName p {
+    margin-bottom: -30px;
+
+}
+
+#ProfilPicture {
+    margin-top: 3vh;
+    width: 24vh;
+}
+
+
+

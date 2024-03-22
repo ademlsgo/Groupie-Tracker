@@ -1,0 +1,51 @@
+{{define "CollectionLocation"}}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="/static/CollectionLocation.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/CollectionLocation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Collection Location</title>
+</head>
+<body>
+
+<a href="../templates/home.html">
+    <img id="ProfilPicture" src="/static/images/Profil-RM.png" alt="Profil Picture">
+</a>
+
+<form action="/submit_sort_location" method="get" id="Filter">
+    <select id="type" name="type">
+        <option value="Planet">Planet</option>
+        <option value="Space station">Space station</option>
+    </select>
+    <button  type="submit">Filtrer</button>
+</form>
+
+
+<h1 class="H1">Collection Lieux</h1>
+
+<div class="ContainerLocation">
+
+    {{ range .RecoverLocation}}
+        <div class="BodyLocation">
+
+            <div class="BodyName">
+                <p id="Pname"><a href="/ressource/location?id={{.ID}}">{{ .Name }}</a></p><br>
+            </div>
+            <img id="ImageLocation" src="/static/images/Location.webp" alt="Image">
+        </div>
+    {{ end }}
+
+    <a id="PreviewPage" href="{{.PrevPage}}">Page précedente</a>
+    <a id="NextPage" href="{{.NextPage}}">Page suivante</a>
+
+</div>
+
+
+{{end}}
+
+

@@ -1,0 +1,38 @@
+{{define "RessourceEpisodes"}}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link href="/static/RessourceEpisodes.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/RessourceEpisodes.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <title>Ressource Episodes</title>
+    </head>
+    <body>
+
+    <a href="../templates/home.html">
+        <img id="ProfilPicture" src="/static/images/Profil-RM.png" alt="Profil Picture">
+    </a>
+
+    <h1 class="H1">Ressource Episodes</h1>
+
+    <div class="ContainerEpisodes">
+
+        <div class="BodyEpisodes">
+            <div class="BodyName">
+                <p id="Favorite-star">  <a href="/ressource/favorite?url={{.Url}}&id={{.ID}}&typeEndpoint=episode">&#9733;</a></p>
+                <p>Nom:  {{ .Name }}</p><br>
+                <p>Episode:  {{ .Episode }}</p>
+                <p>Date:  {{ .Date }}</p>
+            </div>
+            <img src="/static/images/Episodes.jpg" alt="Image">
+        </div>
+
+    </div>
+
+    </body>
+    </html>
+{{end}}

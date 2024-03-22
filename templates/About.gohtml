@@ -1,0 +1,47 @@
+{{define "AboutTemp"}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="/static/About.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <title>About</title>
+    </head>
+    <body>
+
+    <div class="about-container">
+        <div class="header">
+            <a href="../templates/home.html">
+                <img id="ProfilPicture" src="/static/images/Profil-RM-removebg-preview.png" alt="Profil Picture">
+            </a>
+            <h1>A propos :</h1>
+            <div class="maquette-link">
+                <p>Lien vers la maquette des relations :</p>
+                <a href="https://lucid.app/lucidchart/d47ddd56-19b8-4b9f-a2ae-922c45f23ac3/edit?invitationId=inv_5853bb9f-bfaa-45af-8e20-593185bbea8b&page=0_0#" target="_blank">Maquette de Relations</a>
+            </div>
+        </div>
+        <div class="steps">
+            <h2>Etapes de réalisation :</h2>
+            <ol>
+                <li>1: Choix de l'API + documentation et choix des 3 endpoints</li>
+                <li>2: Maquettes des relations</li>
+                <li>3: Maquette du front sur papier + réalisation de celui-ci</li>
+                <li>4: Mise en place du serveur + routes</li>
+                <li>5: Réalisation du back</li>
+            </ol>
+        </div>
+        <div class="difficulties">
+            <h2>Difficultés rencontrées et avis :</h2>
+            <p>
+                Pendant la réalisation de ce projet, l'implémentation du système de pagination a constitué un défi significatif. Initialement, mon API renvoyait par défaut 20 ressources par page, tandis que le design prévoyait une pagination avec seulement 10 ressources par page. Adapter le système pour respecter cette exigence a demandé une compréhension approfondie de la gestion de la pagination et des requêtes API. Cela a donc nécessité des ajustements minutieux du code.
+
+                Cependant, au-delà des défis rencontrés, ce projet a été une expérience enrichissante. La réalisation de celui-ci a renforcé mes compétences en développement. Enfin, ce projet a été une aventure passionnante qui m'a permis d'acquérir de nouvelles compétences et de perfectionner mes connaissances. Je suis fier du résultat obtenu et reconnaissant pour les enseignements que cette expérience m'a apportés.
+            </p>
+        </div>
+    </div>
+    </body>
+    </html>
+{{end}}

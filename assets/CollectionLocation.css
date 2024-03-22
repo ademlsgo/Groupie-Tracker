@@ -1,0 +1,164 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.H1{
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 11vh;
+rgb(32, 35, 41);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ContainerLocation{
+    padding-bottom: 10vh;
+    gap: 10rem;
+    flex-wrap: wrap;
+    padding-left: 10vh;
+    width: 211vh;
+    background: rgb(39, 43, 51);
+    height: 334vh;
+    margin-top: 10vh;
+    color: white;
+    font-family: 'Anton', sans-serif;
+    font-size: 5vh;
+    display: flex;
+}
+
+.BodyLocation{
+    position: relative;
+    background: #5b5454 ;
+    height: 34vh;
+    flex: 0 0 calc(45% - 1rem);
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 15px;
+    margin-top: 5vh;
+    margin-right: -10vh;
+}
+
+.BodyLocation img{
+    width: 35%;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border-radius: 15px 0px 0px 15px;
+}
+
+
+
+#Favorite-star {
+    font-size: 2.5rem;
+    color: gold;
+    cursor: pointer;
+    margin: 0;
+    padding-right: 5vh;
+}
+
+
+.BodyName{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+    margin-right: 10vh;
+}
+
+#NextPage{
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #2ecc71;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 335vh;
+    margin-left: 35vh;
+    padding-left: 5vh;
+    width: 16vh;
+
+}
+
+#NextPage:hover {
+    background-color: #27ae60;
+}
+
+#PreviewPage {
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 335vh;
+
+}
+
+#PreviewPage:hover {
+    background-color: #c0392b;
+}
+
+
+#Pname a{
+    text-decoration: none;
+    color: white;
+    margin-left: 15vh;
+}
+
+
+.ImageLocation{
+    width: 40%;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border-radius: 15px 0px 0px 15px;
+}
+
+#ProfilPicture {
+    margin-top: 3vh;
+    width: 24vh;
+}
+
+form {
+    margin-left: 170vh;
+    width: 35vh;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+select {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 150px;
+    margin-right: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+

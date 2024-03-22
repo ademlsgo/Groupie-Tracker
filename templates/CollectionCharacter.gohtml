@@ -1,0 +1,54 @@
+{{define "CollectionCharacter"}}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="/static/CollectionCharacter.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/CollectionCharacter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>Collection Character</title>
+</head>
+<body>
+
+<a href="../templates/home.html">
+    <img id="ProfilPicture" src="/static/images/Profil-RM.png" alt="Profil Picture">
+</a>
+
+<form action="/submit_sort" method="get" id="Filter">
+    <select id="species" name="species">
+        <option value="Human">Human</option>
+        <option value="Alien">Alien</option>
+        <option value="Humanoid">Humanoid</option>
+        <option value="Robot">Robot</option>
+        <option value="Cronenberg">Cronenberg</option>
+        <option value="Animal">Animal</option>
+        <option value="Disease">Disease</option>
+        <option value="unknown">Unknown</option>
+    </select>
+    <button  type="submit">Filtrer</button>
+</form>
+
+<h1 class="H1">Collection Personnages</h1>
+
+<div class="ContainerCharacter">
+
+        {{ range .RecoverCharacters}}
+            <div class="BodyCharacter">
+                <div class="BodyName">
+                    <p id="Pname"><a href="/ressource/character?id={{.ID}}">{{ .Name }}</a></p><br>
+                </div>
+                <img src="{{ .Image }}" alt="Image">
+            </div>
+        {{ end }}
+
+    <a id="PreviewPage" href="{{.PrevPage}}">Page précedente</a>
+    <a id="NextPage" href="{{.NextPage}}">Page suivante</a>
+
+
+    </div>
+
+
+{{end}}

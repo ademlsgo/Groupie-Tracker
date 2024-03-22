@@ -1,0 +1,172 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.Header{
+    display: flex;
+    width: 224vh;
+    height: 15vh;
+    color: #E0EDC6;
+}
+
+
+#ButtonFav {
+    margin-left: 10px;
+    margin-top: 5vh;
+    height: 5vh;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-family: 'Anton', sans-serif;
+    font-size: 2.4vh;
+}
+
+#ButtonFav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#ButtonSearch {
+    margin-right: 10vh;
+    margin-left: 30vh;
+    margin-top: 6vh;
+    height: 5vh;
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-decoration: underline;
+}
+
+#LogoPicture{
+    margin-left: 60vh;
+    height: 25vh;
+    width: 45vh;
+    margin-top: -3vh
+}
+
+#ProfilPicture {
+    margin-top: 3vh;
+    width: 24vh;
+}
+
+
+
+.Body{
+    display: flex;
+    align-items: center;
+    margin-top: 4vh;
+    background-color: black;
+    width: 224vh;
+    height: 65vh
+}
+
+.WritePicture{
+    display: flex;
+    color: white;
+    margin-bottom: 60vh;
+    margin-left: 2vh;
+    width: 0vh;
+}
+
+#PCharacter{
+    font-size: 3.5vh;
+    margin-top: 18vh;
+    margin-left: 36vh;
+    font-family: 'Anton', sans-serif;
+}
+
+
+#PEpisode{
+    font-size: 3.5vh;
+    margin-top: 18vh;
+    margin-left: 60vh;
+    font-family: 'Anton', sans-serif;
+}
+
+
+#PLocation{
+    font-size: 3.5vh;
+    margin-top: 18vh;
+    margin-left: 54vh;
+    font-family: 'Anton', sans-serif;
+}
+
+
+#CharacterPicture{
+    margin-left: 30vh;
+    margin-bottom: 10vh;
+    width: 30vh;
+    height: 40vh;
+    margin-top: 15vh;
+    cursor: pointer;
+}
+
+#EpisodePicture{
+    margin-left: 10vh;
+    margin-bottom: 10vh;
+    width: 30vh;
+    height: 40vh;
+    margin-top: 15vh;
+}
+
+#LocationPicture{
+    padding: 30vh;
+    margin-bottom: 10vh;
+    width: 30vh;
+    height: 40vh;
+    margin-left: 8vh;
+    margin-top: 15vh;
+}
+.Footer{
+    display: flex;
+    width: 228vh;
+    height: 21vh;
+    background-color: black;
+    padding: 0;
+    margin: -27px;
+}
+
+#Propos {
+    padding-top: 5vh;
+    margin-top: 7vh;
+    margin-left: 11vh;
+    font-size: 3.5vh;
+    font-family: 'Anton', sans-serif;
+    border-radius: 2vh;
+    width: 16vh;
+}
+
+#Propos a{
+    color: white;
+    text-decoration:none;
+}
+
+
+#Pmake{
+    margin-top: 12vh;
+    margin-left: 72vh;
+    font-size: 3vh;
+    font-family: 'Anton', sans-serif;
+}
+
+#Pmake a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+#Info{
+    color: #999696;
+    font-family: 'Anton', sans-serif;
+    width: 37vh;
+    margin-left: 30%;
+    height: 3vh;
+    font-size: 14px;
+    margin-top: 14vh;
+
+}
+
