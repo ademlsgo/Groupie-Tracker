@@ -34,14 +34,13 @@ func RessourceFavorite(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = json.Unmarshal(data, &favorite) // Décode les données Json en string
+	err = json.Unmarshal(data, &favorite)
 	if err != nil {
 		fmt.Println("Erreur lors de la lecture du fichier:", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	// Vérifier si le même favori et typeEndpoint existent déjà, si oui, rediriger
 	for _, i := range favorite {
 		if i.ID == newFavorite.ID && i.TypeEndpoint == newFavorite.TypeEndpoint {
 			http.Redirect(w, r, urlRedir, http.StatusSeeOther)
@@ -49,10 +48,8 @@ func RessourceFavorite(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	// Ajouter le nouveau favori au tableau
 	favorite = append(favorite, newFavorite)
 
-	// Traduire les données string en JSON
 	data, err = json.Marshal(favorite)
 	if err != nil {
 		fmt.Println("Erreur lors de la conversion en JSON:", err)
@@ -60,7 +57,6 @@ func RessourceFavorite(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Écrire les données dans le fichier JSON
 	err = os.WriteFile("Favorite.json", data, 0644)
 	if err != nil {
 		fmt.Println("Erreur lors de l'écriture du fichier:", err)
@@ -80,17 +76,15 @@ func convertStringToInt(s string) int {
 }
 
 func DeleteFavorite(w http.ResponseWriter, r *http.Request) {
-	// Récupérer les paramètres de l'URL
+
 	ID := r.URL.Query().Get("id")
 	TypeEndpoint := r.URL.Query().Get("typeEndpoint")
 
-	// Vérifier si les paramètres sont vides
 	if ID == "" || TypeEndpoint == "" {
 		http.Error(w, "Invalid parameters", http.StatusBadRequest)
 		return
 	}
 
-	// Lire le fichier JSON
 	data, err := os.ReadFile("Favorite.json")
 	if err != nil {
 		fmt.Println("Erreur lors de la lecture du fichier:", err)
@@ -115,7 +109,6 @@ func DeleteFavorite(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	// Réécrire les favoris dans le fichier JSON
 	data, err = json.Marshal(favorites)
 	if err != nil {
 		fmt.Println("Erreur lors de la conversion en JSON:", err)
@@ -130,6 +123,5 @@ func DeleteFavorite(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Rediriger vers la page des favoris
 	http.Redirect(w, r, "/ressourceTemp/favoriteTemp/", http.StatusSeeOther)
 }

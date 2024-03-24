@@ -6,7 +6,7 @@ body {
     background-image: url("../static/images/backP.webp");
     color: black;
     font-size: 15px;
-background-size: 100%;
+    background-size: cover;
 }
 
 .about-container {
@@ -30,6 +30,8 @@ background-size: 100%;
 }
 
 .steps {
+    padding: 1vh;
+    background-color: whitesmoke;
     margin-top: 40px;
 }
 
@@ -52,4 +54,18 @@ background-size: 100%;
     position: absolute;
     margin-left: -103vh;
 
+}
+
+.Maquettes{
+    width: 40vh;
+    margin-right: 10vh;
+}
+
+.difficulties{
+    padding: 1vh;
+    background-color: whitesmoke;
+}
+
+#title{
+    font-size: 30px;
 }

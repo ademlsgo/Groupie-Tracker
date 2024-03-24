@@ -52,23 +52,28 @@ ul {
 
 
 
-#Favorite-star {
+#favoriteLink {
     font-size: 2.5rem;
-    color: white;
+    color: #232323;
     cursor: pointer;
     margin: 0;
-    margin-left: 42vh;
+    margin-left: 37vh;
     padding-right: 5vh;
     position: absolute;
 }
 
-#Favorite-star a {
+#favoriteLink a {
     text-decoration: none;
     color: inherit;
 }
 
-#Favorite-star a.clicked {
-    color: gold;
+#FavImage {
+    width: 3vh;
+    margin-left: 1vh;
+}
+
+#Favorite-container{
+    width: 5vh;
 }
 
 
@@ -91,4 +96,49 @@ ul {
     margin-top: 3vh;
     width: 24vh;
 }
+#favoriteLink {
+    font-size: 2.5rem;
+    color: #232323;
+    cursor: pointer;
+    margin-left: 37vh;
+    margin-top: -0vh;
+    padding-right: 5vh;
+    position: absolute;
+}
+
+#favoriteLink a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#successMessage {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 77%;
+    font-size: 17px;
+    width: 200px;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

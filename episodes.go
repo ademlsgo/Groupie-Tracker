@@ -43,36 +43,31 @@ func CollectionEpisodes(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err = http.Get("https://rickandmortyapi.com/api/episode") // Effectuer la demande à l'API
+	_, err = http.Get("https://rickandmortyapi.com/api/episode")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	// Initialisation de l'URL pour la première page
 	url := "https://rickandmortyapi.com/api/episode"
 
 	var allEpisodes AllEpisodes
 
-	// Boucle pour récupérer toutes les pages
 	for url != "https://rickandmortyapi.com/api/episode?page=3" {
 
-		// Utiliser le client HTTP standard pour effectuer la requête
 		resp, err := http.Get(url)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		defer resp.Body.Close() // Fermer le corps de la réponse
-
-		// Décoder la réponse JSON de l'API
+		defer resp.Body.Close()
 		err = json.NewDecoder(resp.Body).Decode(&allEpisodes)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		// Mettre à jour l'URL pour la page suivante
+
 		url = allEpisodes.InfoE.Next
 
 		episodesList = append(episodesList, allEpisodes.Results...)
@@ -85,7 +80,7 @@ func CollectionEpisodes(w http.ResponseWriter, r *http.Request) {
 		PrevPage:        page - 1,
 		NextPage:        page + 1,
 	}
-	// Passer la structure de données à votre modèle HTML
+
 	err = tmpl.ExecuteTemplate(w, "CollectionEpisodes", datas)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

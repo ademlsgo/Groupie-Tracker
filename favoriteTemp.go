@@ -51,7 +51,6 @@ func FavoriteTemp(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Décode les données JSON en string
 	err = json.Unmarshal(data, &favorites)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

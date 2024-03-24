@@ -52,30 +52,26 @@ func CollectionLocation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	_, err = http.Get("https://rickandmortyapi.com/api/location") // Effectuer la demande à l'API
+	_, err = http.Get("https://rickandmortyapi.com/api/location")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	// Initialisation de l'URL pour la première page
 	url := "https://rickandmortyapi.com/api/location"
 
 	var allLocation AllLocation
 
-	// Boucle pour récupérer toutes les pages
 	for url != "https://rickandmortyapi.com/api/location?page=7" {
 
-		// Utiliser le client HTTP standard pour effectuer la requête
 		resp, err := http.Get(url)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		defer resp.Body.Close() // Fermer le corps de la réponse
+		defer resp.Body.Close()
 
-		// Décoder la réponse JSON de l'API
 		err = json.NewDecoder(resp.Body).Decode(&allLocation)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -94,7 +90,6 @@ func CollectionLocation(w http.ResponseWriter, r *http.Request) {
 		PrevPage:        fmt.Sprintf("/collection/location?page=%v", page-1),
 		NextPage:        fmt.Sprintf("/collection/location?page=%v", page+1),
 	}
-	// Passer la structure de données à votre modèle HTML
 	err = tmpl.ExecuteTemplate(w, "CollectionLocation", datas)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -162,41 +157,34 @@ func FilterLocation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Effacer les résultats précédents
 	filteredLocation = nil
 
 	typeFilter := strings.ToLower(r.URL.Query().Get("type"))
 
-	// Verifier si la liste des lieux est initialisée
 	if len(locationList) == 0 {
 		http.Error(w, "locationList is not initialized", http.StatusInternalServerError)
 		return
 	}
 
-	// Application du filtrage
 	for _, location := range locationList {
 		if strings.ToLower(location.Type) == typeFilter {
 			filteredLocation = append(filteredLocation, location)
 		}
 	}
 
-	// Récupérer la valeur de la page à partir de la requête
 	page, err := strconv.Atoi(r.FormValue("page"))
 	if err != nil || page < 0 {
 		page = 0
 	}
 
-	// Nombre d'éléments par page
 	itemsPerPage := 10
 
-	// Calculer l'index de début et de fin des lieux pour la page actuelle
 	startIndex := page * itemsPerPage
 	endIndex := (page + 1) * itemsPerPage
 	if endIndex > len(filteredLocation) {
 		endIndex = len(filteredLocation)
 	}
 
-	// Vérifier si la page suivante a des éléments
 	nextPage := ""
 	if endIndex < len(filteredLocation) {
 		nextPage = fmt.Sprintf("/submit_sort_location?type=%v&page=%v", typeFilter, page+1)
@@ -204,7 +192,6 @@ func FilterLocation(w http.ResponseWriter, r *http.Request) {
 		nextPage = fmt.Sprintf("/submit_sort_location?type=%v&page=%v", typeFilter, 0) // Retourner à la première page
 	}
 
-	// Extraire les lieux pour la page actuelle
 	currentPageLocation := filteredLocation[startIndex:endIndex]
 
 	datas := DataPageL{

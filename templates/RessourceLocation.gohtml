@@ -23,7 +23,15 @@
 
         <div class="BodyLocation">
             <div class="BodyName">
-                <p id="Favorite-star">  <a href="/ressource/favorite?url={{.Url}}&id={{.ID}}&typeEndpoint=location">&#9733;</a></p>
+                <p id="favoriteLink">  <a href="/ressource/favorite?url={{.Url}}&id={{.ID}}&typeEndpoint=location">&#9733;</a></p>
+                <div id="successMessage" style="display: none;">Ajouté au favoris avec succès!</div>
+                <script>
+                    document.getElementById('favoriteLink').addEventListener('click', function() {
+                        var successMessage = document.getElementById('successMessage');
+                        successMessage.style.display = 'block';
+                    });
+                </script>
+
                 <p>Nom:  {{ .Name }}</p><br>
                 <p>Type:  {{ .Type}}</p><br>
                 <p>Dimension:  {{ .Dimension }}</p>
@@ -32,6 +40,7 @@
         </div>
 
     </div>
+
 
     </body>
     </html>

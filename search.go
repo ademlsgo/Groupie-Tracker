@@ -20,7 +20,6 @@ type DatasCharacter struct {
 	Url     string `json:"url"`
 }
 
-// CharacterList représente la liste de personnages
 type CharacterList struct {
 	Info    Info             `json:"info"`
 	Results []DatasCharacter `json:"results"`
@@ -30,12 +29,12 @@ type Info struct {
 	Next string `json:"next"`
 }
 
-// Fonction utilitaire pour vérifier si le nom du personnage contient la requête
+// VERIF si le nom du personnage contient la requête
 func containsName(characterName, query string) bool {
 	return strings.Contains(strings.ToLower(characterName), strings.ToLower(query))
 }
 
-// Fonction utilitaire pour obtenir le personnage par ID
+// For obtenir le personnage par ID
 func getCharacterByID(charactersList []DatasCharacter, id int) (*DatasCharacter, error) {
 	for _, character := range charactersList {
 		if character.ID == id {
@@ -56,7 +55,6 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		// Construire l'URL avec le numéro de la page
 		url := "https://rickandmortyapi.com/api/character?page=" + strconv.Itoa(page)
 
-		// Utiliser le client HTTP standard pour effectuer la requête
 		resp, err := http.Get(url)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -64,7 +62,6 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		defer resp.Body.Close()
 
-		// Décoder la réponse JSON de l'API
 		var charactersList CharacterList
 		err = json.NewDecoder(resp.Body).Decode(&charactersList)
 		if err != nil {
@@ -103,14 +100,12 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Utiliser le modèle pour afficher le personnage correspondant
 	tmpl, err := template.ParseFiles("./templates/Search.gohtml")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	// Passer à votre modèle le personnage correspondant
 	err = tmpl.ExecuteTemplate(w, "Search", character)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

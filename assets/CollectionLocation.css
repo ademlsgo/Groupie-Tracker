@@ -9,25 +9,25 @@ body{
     font-size: 11vh;
 rgb(32, 35, 41);
 }
-
 ul {
     list-style-type: none;
     padding: 0;
 }
 
 .ContainerLocation{
-    padding-bottom: 10vh;
+    position: relative;
+    padding-bottom: 20vh;
     gap: 10rem;
     flex-wrap: wrap;
     padding-left: 10vh;
     width: 211vh;
     background: rgb(39, 43, 51);
-    height: 334vh;
     margin-top: 10vh;
     color: white;
     font-family: 'Anton', sans-serif;
     font-size: 5vh;
     display: flex;
+    object-fit: cover;
 }
 
 .BodyLocation{
@@ -43,7 +43,7 @@ ul {
 }
 
 .BodyLocation img{
-    width: 35%;
+    width: 40%;
     position: absolute;
     left: 0;
     height: 100%;
@@ -67,23 +67,23 @@ ul {
     justify-content: center;
     text-align: center;
     width: 60%;
-    margin-right: 10vh;
 }
 
 #NextPage{
+    text-align: center;
     position: absolute;
-    padding: 10px 20px;
+    bottom: 0.9%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    padding: 5px 10px;
     font-size: 16px;
     text-decoration: none;
     background-color: #2ecc71;
     color: #fff;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin-top: 335vh;
-    margin-left: 35vh;
-    padding-left: 5vh;
-    width: 16vh;
-
+    object-fit: cover;
+    width: 20vh;
 }
 
 #NextPage:hover {
@@ -91,15 +91,21 @@ ul {
 }
 
 #PreviewPage {
+
+    text-align: center;
     position: absolute;
-    padding: 10px 20px;
+    bottom: 0.9%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    padding: 5px 10px;
     font-size: 16px;
     text-decoration: none;
     background-color: #ff0000;
     color: #fff;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    margin-top: 335vh;
+    object-fit: cover;
+    width: 20vh;
 
 }
 
@@ -111,22 +117,16 @@ ul {
 #Pname a{
     text-decoration: none;
     color: white;
-    margin-left: 15vh;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
-
-.ImageLocation{
-    width: 40%;
-    position: absolute;
-    left: 0;
-    height: 100%;
-    border-radius: 15px 0px 0px 15px;
-}
 
 #ProfilPicture {
     margin-top: 3vh;
     width: 24vh;
 }
+
 
 form {
     margin-left: 170vh;
@@ -160,5 +160,3 @@ button {
 button:hover {
     background-color: #45a049;
 }
-
-

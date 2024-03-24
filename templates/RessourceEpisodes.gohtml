@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <script src="/static/assets/fav.js"></script>
         <title>Ressource Episodes</title>
     </head>
     <body>
@@ -23,7 +24,14 @@
 
         <div class="BodyEpisodes">
             <div class="BodyName">
-                <p id="Favorite-star">  <a href="/ressource/favorite?url={{.Url}}&id={{.ID}}&typeEndpoint=episode">&#9733;</a></p>
+                <p id="favoriteLink">  <a href="/ressource/favorite?url={{.Url}}&id={{.ID}}&typeEndpoint=episode">&#9733;</a></p>
+                <div id="successMessage" style="display: none;">Ajouté au favoris avec succès!</div>
+                <script>
+                    document.getElementById('favoriteLink').addEventListener('click', function() {
+                        var successMessage = document.getElementById('successMessage');
+                        successMessage.style.display = 'block';
+                    });
+                </script>
                 <p>Nom:  {{ .Name }}</p><br>
                 <p>Episode:  {{ .Episode }}</p>
                 <p>Date:  {{ .Date }}</p>

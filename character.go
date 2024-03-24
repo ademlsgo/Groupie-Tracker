@@ -69,21 +69,20 @@ func CollectionCharacter(w http.ResponseWriter, r *http.Request) {
 	// Boucle pour récupérer toutes les pages
 	for url != "https://rickandmortyapi.com/api/character?page=42" {
 
-		// Utiliser le client HTTP standard pour effectuer la requête
 		resp, err := http.Get(url)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
 
-		defer resp.Body.Close() // Fermer le corps de la réponse
+		defer resp.Body.Close()
 
-		// Décoder la réponse JSON de l'API
 		err = json.NewDecoder(resp.Body).Decode(&allCharacters)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
+
 		// Mettre à jour l'URL pour la page suivante
 		url = allCharacters.InfoC.Next
 
@@ -98,7 +97,7 @@ func CollectionCharacter(w http.ResponseWriter, r *http.Request) {
 		PrevPage:          fmt.Sprintf("/collection/character?page=%v", page-1),
 		NextPage:          fmt.Sprintf("/collection/character?page=%v", page+1),
 	}
-	// Passer la structure de données à votre modèle HTML
+
 	err = tmpl.ExecuteTemplate(w, "CollectionCharacter", datas)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -192,7 +191,7 @@ func FilterCharacter(w http.ResponseWriter, r *http.Request) {
 	// Nombre d'éléments par page
 	itemsPerPage := 10
 
-	// Calculer l'index de début et de fin des personnages pour la page actuelle
+	// Calcul de l'index de début et de fin des personnages pour la page actuelle
 	startIndex := page * itemsPerPage
 	endIndex := (page + 1) * itemsPerPage
 	if endIndex > len(filteredCharacters) {
